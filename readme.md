@@ -1,3 +1,4 @@
+<div align="center">
 # watch-out-for-mom-critical
 
 ## What is this
@@ -95,3 +96,5 @@
 모션 감지
 
 ![img](https://media.discordapp.net/attachments/810047161664143383/835435755512791050/wa.png)
+
+</div>
