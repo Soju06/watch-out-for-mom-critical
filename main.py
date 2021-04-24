@@ -14,7 +14,7 @@ motion = False # 모션 있음
 
 # 파라미터
 parser = argparse.ArgumentParser()
-parser.add_argument("--sensitivity", type=int, help="민감도 0 ~ 100", default=10)
+parser.add_argument("--sensitivity", type=int, help="민감도 0 ~ 100", default=80)
 parser.add_argument("--max-diff", type=int, help="모션 감지 0 ~ ...", default=100)
 parser.add_argument("--mom-critical-ready-delay", type=int, help="엄크 감지후 준비 딜레이 (s)", default=5)
 parser.add_argument("--abs-delay-frame-count", type=int, help="비교 프레임 frame_count보다 높거나 같을수 없습니다, 0 이하이면 감지되지 않습니다", default=4)
