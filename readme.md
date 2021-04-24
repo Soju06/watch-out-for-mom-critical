@@ -4,7 +4,7 @@
 
 웹캠 하나만 있으면 당신의 사생활을 가족들로부터 안전하게 해줍니다.
 
-<img width="70%" src="https://media.discordapp.net/attachments/810047161664143383/835435484478046218/wad.gif" />
+<img width="70%" src="https://user-images.githubusercontent.com/34199905/115955657-de369900-a532-11eb-8be2-b2647003cd1c.gif" />
 
 ## How it works
 
