@@ -14,11 +14,10 @@ motion = False # 모션 있음
 
 # 파라미터
 parser = argparse.ArgumentParser()
-parser.add_argument("--sensitivity", type=int, help="민감도 0 ~ 100", default=80)
-parser.add_argument("--max-diff", type=int, help="모션 감지 0 ~ ...", default=100)
-parser.add_argument("--mom-critical-ready-delay", type=int, help="엄크 감지후 준비 딜레이 (s)", default=5)
-parser.add_argument("--abs-delay-frame-count", type=int, help="비교 프레임 frame_count보다 높거나 같을수 없습니다, 0 이하이면 감지되지 않습니다", default=4)
-parser.add_argument("--frame-count", type=int, help="임시 프레임 수", default=5)
+parser.add_argument("--sensitivity", type=int, help="색상 변화 민감도 백분율 (0 ~ 100, def 80)", default=80)
+parser.add_argument("--max-diff", type=int, help="변경 사항 max-diff보다 높다면 모션을 감지합니다. 낮을수록 변화에 대해 민감해집니다 (0 ~ ..., def 100)", default=100)
+parser.add_argument("--mom-critical-ready-delay", type=int, help="엄크가 발생하고 난 후 다시 준비하는 시간입니다 (def 5)", default=5)
+parser.add_argument("--frame-count", type=int, help="비교할 프레임 간격입니다. 높으면 움직임에 민감합니다 (def 5)", default=5)
 parser.add_argument("--video", type=int, help="카메라 번호", default=0)
 parser.add_argument("--no-gui", help="창을 표시하지 않음", action='store_true')
 
@@ -26,16 +25,13 @@ args = parser.parse_args()
 
 sensitivity = args.sensitivity # 민감도 0 ~ 100
 max_diff = args.max_diff # 모션 감지 차이
-abs_delay_frame_count = args.abs_delay_frame_count # 비교 프레임 frame_count보다 높거나 같을수 없습니다, 0 이하이면 감지되지 않습니다
 mom_critical_ready_delay = args.mom_critical_ready_delay # 엄크가 발생하고 난 후 다시 준비하는 시간입니다.
-frame_count = args.frame_count # 임시 프레임 수
+frame_count = args.frame_count # 비교할 프레임 간격입니다. 높으면 움직임에 민감합니다
 no_gui = args.no_gui # no gui
 
 def main():
     print("sensitivity: " + str(sensitivity))
     print("max_diff: " + str(max_diff))
-    print("abs_delay_frame_count: " + str(abs_delay_frame_count))
-    print("mom_critical_ready_delay: " + str(mom_critical_ready_delay))
     print("frame_count: " + str(frame_count))
     print("video: " + str(args.video))
     print("no_gui: " + str(args.no_gui))
@@ -80,7 +76,7 @@ def main():
             if not ret: break
             
             current_gray = gray_frames[frame_count - 1] = cv2.cvtColor(current_frame, cv2.COLOR_BGR2GRAY)
-            current_diff = cv2.absdiff(current_gray, gray_frames[frame_count - abs_delay_frame_count - 1])
+            current_diff = cv2.absdiff(current_gray, gray_frames[0])
             ret, current_threshold = cv2.threshold(current_diff, sensitivity_s, 255, cv2.THRESH_BINARY)
             
             diff = cv2.morphologyEx(current_threshold, cv2.MORPH_OPEN, cv2.getStructuringElement(cv2.MORPH_CROSS, (3, 3)))

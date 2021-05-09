@@ -53,15 +53,13 @@
   
   --mom-critical-ready-delay 5 # 엄크가 발생한 경우 mom-critical-ready-delay 초 후 Ready 상태로 돌아갑니다.
   
-  --abs-delay-frame-count 4 # 비교할 프레임입니다. frame-count보다 높을 수 없습니다. 높을수록 움직임에 대해 민감해집니다.
-  
-  --frame-count 5 # 임시 프레임 개수입니다.
+  --frame-count 5 # 비교할 프레임 간격입니다. 높으면 움직임에 민감합니다
   
   --video 0 # 모션을 감지할 카메라 번호입니다. 카메라가 여러 개일 경우 이 값을 조정하여 설정합니다.
   
   --no-gui # 카메라 모니터링이 필요 없는 경우 이 플래그를 사용하십시오.
   ```
-
+  
 * 실행
 
   Windows인 경우
