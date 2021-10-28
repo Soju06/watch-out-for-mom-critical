@@ -1,0 +1,1 @@
+py main.py --sensitivity 80 --max-diff 100 --mom-critical-ready-delay 5 --frame-count 5 --video 0

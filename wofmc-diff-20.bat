@@ -1,0 +1,1 @@
+py main.py --max-diff 20 --video 0
