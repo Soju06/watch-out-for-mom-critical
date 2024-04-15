@@ -26,7 +26,7 @@ args = parser.parse_args()
 sensitivity = args.sensitivity # 민감도 0 ~ 100
 max_diff = args.max_diff # 모션 감지 차이
 mom_critical_ready_delay = args.mom_critical_ready_delay # 엄크가 발생하고 난 후 다시 준비하는 시간입니다.
-frame_count = args.frame_count # 비교할 프레임 간격입니다. 높으면 움직임에 민감합니다
+frame_count = args.frame_count # 비교 할 프레임 간격입니다. 높으면 움직임에 민감합니다
 no_gui = args.no_gui # no gui
 
 def main():
@@ -42,10 +42,10 @@ def main():
 
     video = cv2.VideoCapture(args.video) # 비디오 불러옴
 
-    if not video.isOpened(): # 비디오가 열려있지 않으면
-        print("카메라를 열수 없습니다")
+    if not video.isOpened(): # 비디오가 열려 있지 않으면
+        print("카메라를 열 수 없습니다")
         if not no_gui:
-            messagebox.showerror(main_window_name, "카메라를 열수 없습니다.")
+            messagebox.showerror(main_window_name, "카메라를 열 수 없습니다.")
         return
     
     # 비디오 설정
@@ -137,7 +137,7 @@ def mom_critical_ready(): # 엄크 준비
     ah_shit = False
 
 # 프레임 밀기
-def push_frames(frame_count, frames): # 대충 프레임 미는거
+def push_frames(frame_count, frames): # 프레임 미는거
     for i in range(0, frame_count): # 프레임 뒤로 밀기
         if(i > 0): frames[i - 1] = frames[i]
 
