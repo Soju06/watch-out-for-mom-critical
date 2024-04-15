@@ -92,4 +92,4 @@
 
 모션 감지
 
-![img](https://media.discordapp.net/attachments/810047161664143383/835435755512791050/wa.png)
+![img](https://github.com/Soju06/watch-out-for-mom-critical/assets/34199905/a3adb601-5f47-4989-b5c2-746685f1b8e8)
